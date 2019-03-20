@@ -8,7 +8,7 @@ workflows:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
-          region: us-east-1
+          region: AWS_REGION
           repo: nextjs-on-aws
           tag: latest
           #context: myContext
