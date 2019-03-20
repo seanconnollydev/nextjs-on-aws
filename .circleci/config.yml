@@ -17,8 +17,8 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build_and_push_image
-          family: 'nextjs-on-aws-service'
-          service-name: 'sample-app-service'
-          cluster-name: 'nextjs-on-aws-cluster'
-          container-image-name-updates: 'container=nextjs-on-aws-container,tag=${CIRCLE_SHA1}'
+          family: 'nextjs-td'
+          service-name: 'my-service'
+          cluster-name: 'my-cluster'
+          container-image-name-updates: 'container=nextjs-container,tag=${CIRCLE_SHA1}'
 
