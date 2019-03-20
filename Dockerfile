@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM node:10.15.1-alpine
 
 # Set the working directory and copy over package manager specific files
 WORKDIR /usr/src
