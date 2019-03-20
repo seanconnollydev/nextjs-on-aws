@@ -4,7 +4,7 @@ orbs:
   aws-ecr: circleci/aws-ecr@3.0.0
 
 workflows:
-  build_and_push_image:
+  build_push_and_deploy_image:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
@@ -13,6 +13,10 @@ workflows:
           region: AWS_REGION
           repo: nextjs-on-aws
           tag: latest
-          #context: myContext
-          #create-repo: true
-          #profile-name: myProfileName
+      - aws-ecs/deploy-service-update:
+          requires:
+            - aws-ecr/build_and_push_image
+          family: 'nextjs-on-aws-service'
+          cluster-name: 'nextjs-on-aws-cluster'
+          container-image-name-updates: 'container=nextjs-on-aws-service,tag=latest'
+
