@@ -13,11 +13,11 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           region: AWS_REGION
           repo: nextjs-on-aws
-          tag: latest
+          tag: ${CIRCLE_SHA1}
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build_and_push_image
           family: 'nextjs-on-aws-service'
           cluster-name: 'nextjs-on-aws-cluster'
-          container-image-name-updates: 'container=nextjs-on-aws-service,tag=latest'
+          container-image-name-updates: 'container=nextjs-on-aws-service,tag=${CIRCLE_SHA1}'
 
