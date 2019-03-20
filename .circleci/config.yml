@@ -8,6 +8,8 @@ workflows:
     jobs:
       - aws-ecr/build_and_push_image:
           account-url: AWS_ECR_ACCOUNT_URL
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           region: AWS_REGION
           repo: nextjs-on-aws
           tag: latest
