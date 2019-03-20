@@ -20,5 +20,5 @@ workflows:
           family: 'nextjs-on-aws-service'
           service-name: 'sample-app-service'
           cluster-name: 'nextjs-on-aws-cluster'
-          container-image-name-updates: 'container=sample-app,tag=${CIRCLE_SHA1}'
+          container-image-name-updates: 'container=nextjs-on-aws-container,tag=${CIRCLE_SHA1}'
 
