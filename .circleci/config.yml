@@ -6,7 +6,6 @@ orbs:
 workflows:
   build_and_push_image:
     jobs:
-      - build
       - aws-ecr/build_and_push_image:
           account-url: ${AWS_ECR_ACCOUNT_URL}
           region: us-east-1
@@ -15,10 +14,3 @@ workflows:
           #context: myContext
           #create-repo: true
           #profile-name: myProfileName
-
-jobs:
-  build:
-    docker:
-      - image: circleci/python:2.7.14
-    steps:
-      - checkout
